@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", function () {
         })
 
     }
+    // Allows users to hit submit using the 'Enter' key
+    document.getElementById("answer-box").addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            checkAnswer();
+        }
+    })
 
     runGame("addition");
 })
@@ -24,6 +30,12 @@ document.addEventListener("DOMContentLoaded", function () {
  * and after the user's answer has been processed
  */
 function runGame(gameType) {
+
+    // Resets answer box to empty after submission
+    document.getElementById("answer-box").value = "";
+
+    // Sets the user cursor to answer box upon page load
+    document.getElementById("answer-box").focus();
 
     // Creates two random numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1
